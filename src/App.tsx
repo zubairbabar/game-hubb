@@ -6,9 +6,13 @@ import GenreList from "./component/GenreList";
 import { useState } from "react";
 import { Genre } from "./component/hooks/useGenres";
 import PlatformSelector from "./component/PlatformSelector";
+import { Platform } from "./component/hooks/useGames";
 //setting up responsive layout
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
   return (
     <Grid
       templateAreas={{
@@ -33,8 +37,14 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <PlatformSelector />
-        <GameGrid selectedGenre={selectedGenre}></GameGrid>
+        <PlatformSelector
+          selectedPlatform={selectedPlatform}
+          onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+        />
+        <GameGrid
+          selectedPlatform={selectedPlatform}
+          selectedGenre={selectedGenre}
+        ></GameGrid>
       </GridItem>
     </Grid>
   );
