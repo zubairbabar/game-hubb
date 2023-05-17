@@ -5,6 +5,7 @@ import NavBar from "./component/NavBar";
 import GenreList from "./component/GenreList";
 import { useState } from "react";
 import { Genre } from "./component/hooks/useGenres";
+import PlatformSelector from "./component/PlatformSelector";
 //setting up responsive layout
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -32,6 +33,7 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
+        <PlatformSelector />
         <GameGrid selectedGenre={selectedGenre}></GameGrid>
       </GridItem>
     </Grid>
