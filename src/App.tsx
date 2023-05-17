@@ -8,6 +8,7 @@ import { Genre } from "./component/hooks/useGenres";
 import PlatformSelector from "./component/PlatformSelector";
 import { Platform } from "./component/hooks/useGames";
 import SortSelector from "./component/SortSelector";
+import SearchInput from "./component/SearchInput";
 
 //Refactoring code
 export interface GameQuery {
@@ -35,7 +36,6 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        Nav
         <NavBar></NavBar>
       </GridItem>
       <Show above="lg">
