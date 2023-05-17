@@ -8,13 +8,13 @@ import { Genre } from "./component/hooks/useGenres";
 import PlatformSelector from "./component/PlatformSelector";
 import { Platform } from "./component/hooks/useGames";
 import SortSelector from "./component/SortSelector";
-import SearchInput from "./component/SearchInput";
 
 //Refactoring code
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 //setting up responsive layout
@@ -36,7 +36,9 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <NavBar></NavBar>
+        <NavBar
+          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
+        ></NavBar>
       </GridItem>
       <Show above="lg">
         <GridItem paddingX={5} area="aside">
